@@ -2,7 +2,7 @@
 **Data Structure**
 @ Prof. Chris Murphy from Penn
 ```Java
-@ Note by Gary Zhang
+@ Note by Puran Zhang
 ```
 
 This course focuses on data structures, software design, and advanced Java. The
@@ -44,10 +44,91 @@ Key Concepts & Examples
     - Unlike using Object as the parameter type, this ensures that the declared data type in instantiation remains the same for the created instance.
     - For example, if an ArrayList is instantiated as an ```Java ArrayList<String>```, then only elements of type String can be added to the ArrayList.
 
+### Software Quality
+
+**Perspectives on Software Quality:**
+- **Transcendental 先验**：can be recognized but not defined or measured.
+- **User**: satisfies end-user's needs
+- **Manufacturer**: conforms to specification (regradless of what users want)
+- **product**: based onn ninternal characteristics of the code itself
+- **value-based**: depends on what someone is willing to pay for it
+
+**Definition of Software Quality:**
+- **External**: executable program running on hardware in some environment
+    - **Functionality**: adheeres to specifications
+    - **Reliability**: maintains leveel of performance
+    - **Usability**: ease with which useeers can perform tasks
+    - **Efficiency**: minimal use of resources
+    - **Security**: confidentiality, integrity, availability
+- **internal**: code as human-readble text
+    - **Stability**: modifyig one part has limited effect on others
+    - **Changeability**: ease with which code can be changed
+    - **Analyzability**: readability and undeerstandability
+    - **Testability**: controllability, obseervability
+    - **Reusability**: can be used in a varity of applications
 
 ### Java/JUnit Refresher
+Read Data Structures & Algorithms, 6th ed, Chapter 1: Java Primer, Chapter 2: Object-Oriented Design
+
+Practice: The rainfall method below is intended to determine the average amount of rainfall for each month as indicated by the input array. However, in this case, negative values should be ignored, so the method should only determine the average of the non-negative values, i.e. those that are greater than or equal to 0.
+
+```Java
+public class Main {
+  
+  public static double rainfall(double[] readings) {
+    // implement this method!
+    //Select non-negative
+    int len=0;
+    //average
+    double total=0;
+    for(int i=0; i<readings.length; i++){
+      if (readings[i]>=0){
+        total += readings[i];
+        len++;
+      }
+    }
+    return total/len;
+  }
+  
+  public static void main(String[] args) {
+    double[] readings = { 84, 73.5, 22.1, 0.0, 11.1, -5.2, 4.8, -19.4, 33.1, 0.0, 15.3, 22.1};
+    System.out.println(rainfall(readings));   
+  }
+}
+```
+
+**Software Development Lifestyle (SDLC)**
+- **Requirement**: what are we going to build?
+- **Design**: how are we going to build it?
+- **Implementation**: let's build it!
+- **Testing**: did we build it right?
+- **Maintenance**: how do we make it better?
+
+**Software Testing Basics**
+- Types of testing
+    - **Unit test**: test small piece of code; intuition is that bugs will be easier to find/fix
+    - **Integration test**: test several units based on expected interactions
+    - **System test**: test entire system (via UI)
+    - **Acceptance test**: end-users determine whether the system meets their needs
+- Test case: consist of input, Expected output/behavior, Actual output/Behavior
+    - Result = pass if expected = actual; Result = fail if expected = actual
+    - Steps
+- Fault: static defect in code; difference between actual implementation and theoretically correct implementation
+- Soundness: expected output is correct wrt specification
+    - False negative: expected = actual because test is unsound
+    - False positive: 
 
 ### Implement Data Structrues
+
+**How ArrayList works**
+
+**Generic Data Structure**
+
+Benefits of using Java Generics
+- allow the user of a class to specify the datatype that the class will use internally
+- allow for the creation of generalized classes that do not require casting of method return values.
+    - We could create a generalized class that uses Objects, but callers would need to cast method return values; using Generics, the caller does not have to do any casting.
+- reduce the amount of duplicated (or very similar) code in a system.
 
 ## M2: LinkedLists
 
