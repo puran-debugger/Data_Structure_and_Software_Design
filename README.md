@@ -1,6 +1,8 @@
 
-**Data Structure and Software Design**
-@ Prof. Chris Murphy from Penn
+**Data Structure and Software Design**<br>
+Course Structure: @ Prof. Chris Murphy from University of Pennsylvania<br>
+Additional Content: @ Prof. Bob Sedgewick, Prof. Kevin Wayne from Princeton University<br>
+
 ```Java
 @ Note by Puran Zhang
 ```
@@ -26,8 +28,8 @@ Module Learning Objectives
 - Use Java Generics to develop more generalized data structures.
 
 Module Glossary
-- ArrayList: A data type similar to an array but allowing for a dynamically resizable array implementation. The overhead is the number of array positions that are currently unused.
-- Generics: A feature of Java that allows the programmer to define a class as using a “generic” type for some/all parameters. This allows different instances of the class to be instantiated with different data types. The programmer using the class declares the specific type for the instance when creating it
+- **ArrayList**: A data type similar to an array but allowing for a dynamically resizable array implementation. The overhead is the number of array positions that are currently unused.
+- **Generics**: A feature of Java that allows the programmer to define a class as using a “generic” type for some/all parameters. This allows different instances of the class to be instantiated with different data types. The programmer using the class declares the specific type for the instance when creating it
 
 Key Concepts & Examples
 - Data structures affect both internal and external software quality. How the data is organized can affect
@@ -40,7 +42,7 @@ Key Concepts & Examples
     - Adding/Removing elements
     - Fetching an element from a certain location
     - Determining whether the ArrayList contains a certain value
-- Generics are a feature of Java that allows different instances of the class to be instantiated with different data types.
+- **Generics** are a feature of Java that allows different instances of the class to be instantiated with different data types.
     - Unlike using Object as the parameter type, this ensures that the declared data type in instantiation remains the same for the created instance.
     - For example, if an ArrayList is instantiated as an ```Java ArrayList<String>```, then only elements of type String can be added to the ArrayList.
 
@@ -934,6 +936,8 @@ A **HashMap** is a data structure that associates a set of keys with correspondi
 - Determining if the map contains a particular key using: __containsKey(K key)__
 - Removing key/value pairs using: __remove(K key)__
 
+Read：Chapter 10: Maps, Hash Tables, and Skip Lists
+
 ## M5: Binary Search Trees
 
 Module Learning Objectives
@@ -1016,6 +1020,19 @@ each operation. However this is only true if the tree is __balanced__.
 
 - __AVL Tree__: another type of BST. It satisfies the property that the Balance Factor of every node is -1, 0, or 1, and uses rotations to maintain balance.
 
+### Complexity of Binary Search Tree Operations
+
+### Red-black Trees
+
+* Implementation of self-balancing Binary Search Tree
+* Goal: minimize height of tree
+* Red-black Trees four rules:
+    * Each node is colored red or black
+    * All null nodes are colored black
+    * Every red node has two black child nodes
+    * Every path from any node to any null node must have same number of black nodes (same “black-height”)
+
+
 ## M7: Tree Variation
 
 Module Learning Objectives
@@ -1057,6 +1074,16 @@ Key Concepts & Examples
     - Strings can be added or removed by starting at the root and following paths to affected nodes
     - Special nodes can be used to indicate the termination of strings in case one is a prefix of others
     - All operations are O(m) where m is the length of the string, assuming a node stores its child nodes in an O(1) data structure
+
+* A standard trie containing n strings of m maximum length using an s sized alphabet, assume that all strings are null-terminated.
+    * The maximum number of children of each internal node is at most s+1
+        * Each of the children represent the next character of the string, which gives you s potential possibilities. Since strings are null-terminated, a child could also be represented by a null-terminator, resulting in s+1.
+    * The number of leaves of the tree is equal to $n$
+        * Since the paths from root to leaf represent a full string, the number of leaves should be equal to the number of strings.
+    * The find, insert, and delete operations can be optimized to $O(m)$
+        * If optimized, find, insert, and delete require a simple traversal down the tree, resulting in O(m).
+* Which of the words are stored in the following Trie? Assume that all words are null-terminated
+![](trie.png)
 
 ## M8: Graphs
 
